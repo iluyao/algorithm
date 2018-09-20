@@ -1,0 +1,25 @@
+#define MAX_STACK 50
+
+int LayerNode(BTree T, int item) {
+    BTree STACK1[MaX_STACK], p = T;
+    int STRCK2[MAX_STACK], flag, top = -1;
+
+    while(p != NULL || top != -1) {
+        while(p != NULL) {
+            STACK1[++ top] = p;
+            STACK2[top] = 0;
+            p = p->lchild;
+        }
+        p = STACK1[top];
+        flag = STACK2[top --];
+        if(flag == 0) {
+            STACK1[++ top] = p;
+            STACK2[top] = 1;
+            p = p->rchild;
+        } else {
+            if(p->data == item)
+                return top + 2;
+            p = NULL;
+        }
+    }
+}
