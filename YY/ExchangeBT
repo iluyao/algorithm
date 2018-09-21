@@ -1,0 +1,22 @@
+#define MAx_QUEUE 50
+
+void ExchangeBT (BTree T) {
+    BTree QUEUE[MAX_QUEUE], temp, p = T;
+    int front, rear;
+
+    if(T != NULL) {
+        QUEUE[0] = T;
+        front = -1;
+        rear = 0;
+        while (front < rear) {
+            p = QUEUE[++ front];
+            temp = p->lchild;
+            p->lchild = p->rchild;
+            p->rchild = temp;
+            if(p->lchild != NULL)
+                QUEUE[++ rear] = p->lchild;
+            if(p->rchild != NULL)
+                QUEUE[++ rear] = p->rchild;
+        }
+    }
+}
