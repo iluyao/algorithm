@@ -1,0 +1,10 @@
+int RecurSeqSearch (int A[], int n, int key, int i) {
+    if(i >= n)
+        return -1;
+    if(A[i] == key)
+        return 1;
+    else
+        return RecurSeqSearch(A, n, key,i + 1);
+}
+
+pos = RecurSeqSearch(A, n, key, i + 1);
