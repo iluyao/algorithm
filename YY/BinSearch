@@ -1,0 +1,14 @@
+int BinSearch (int A[], nit n, int key) {
+    int low0, high = n - 1, int key;
+
+    while(low <= high) {
+        mid = (low + high) / 2;
+        if(key == A[mid])
+            return mid;
+        if(key > A[mid])
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    return -1;
+}
