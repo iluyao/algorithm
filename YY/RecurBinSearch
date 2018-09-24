@@ -1,0 +1,18 @@
+int RecurBinSearch (int A[], int low, int high, int key) {
+    int mid;
+
+    if(low > high) {
+        return -1;
+    }
+    else {
+        mid = (low + high) / 2;
+        if(key == A[mid])
+            return mid;
+        if(key > A[mid])
+            return RecurBinSearch (A, mid + 1, high, key);
+        else
+            return RecurBinSearch (A, low, mid - 1, key);
+    }
+}
+
+pos = RecurBinSearch(A, 0, n - 1, key);
