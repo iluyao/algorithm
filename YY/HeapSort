@@ -1,0 +1,33 @@
+void HeapSort (int A[], int n) {
+    int i, temp;
+
+    //建立大顶堆
+    for(i = n / 2; i >= 1; i --)
+        HeapAdjust (A, i, n);
+
+    for(i = n - 1; i >= 1; i --) {
+        temp = A[i];
+        A[1] = A[i + 1];
+        A[i+ 1] = temp;
+        //将A[1..i]重新调整为大顶堆
+        HeapAdjust(A, 1, i);
+    }
+}
+
+void HeapAdjust(int A[], int low, int high) {
+    int i, temp;
+
+    temp = A[low];
+    for(int i = 2 * low; i <= high; i = i * 2) {
+        //令i为关键字较大的记录的下标
+        if(i < high && A[i] < A[i +1])
+            i ++；
+        if(temp >= A[i])
+            break;
+        else {
+            A[low] = A[i];
+            low = i;
+        }
+    }
+    A[low] = temp;      //插入
+}
